@@ -9,8 +9,10 @@
 
 # **🙂 What is this.**
 
-<img width="300" alt="image_3" src="https://github.com/user-attachments/assets/935e239d-6ee4-4667-b8b2-b553d7ae2e81">
+<img width="284" alt="image_1111" src="https://github.com/user-attachments/assets/afa4324a-81fd-4329-9137-162dc93f7279">
 
+
+A simple component.
 
 This React component simplifies writing text using shadcn-ui and TailwindCSS. You can simply copy and paste it without needing to add any other dependencies.
 
