@@ -1,101 +1,123 @@
-import Image from "next/image";
+import React from "react";
+import Text from "@/components/ui/Text";
 
-export default function Home() {
+const codeExample = `
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+`.trim();
+
+const RootPage = () => {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="p-10 space-y-10">
+      <div>
+        [Heading]
+        <Text variant="h1">This is H1</Text>
+        <Text variant="h2">This is H2</Text>
+        <Text variant="h3">This is H3</Text>
+        <Text variant="h4">This is H4</Text>
+        <Text variant="h5">This is H5</Text>
+        <Text variant="h6">This is H6</Text>
+      </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      <div>
+        [Base]
+        <Text variant="lead">This is lead</Text>
+        <Text variant="large">This is large</Text>
+        <Text variant="p">This is p (Default)</Text>
+        <Text variant="small">This is small</Text>
+        <Text variant="muted">This is muted</Text>
+      </div>
+
+      <div>
+        [Styled]
+        <Text variant="blockquote">This is a blockquote.</Text>
+        <Text variant="p">
+          You can <strong>Emphasize Text</strong> like this.
+        </Text>
+        <Text variant="p" className="italic">
+          You can use italic Text like this.
+        </Text>
+        <Text variant="p" className="line-through">
+          You can use deleted Text like this.
+        </Text>
+        <Text variant="highlighted">This Text is highlighted.</Text>
+        <Text variant="p" className="text-indigo-500">
+          You can easily customize Text with className, or you can add new
+          variants to make it reusable.
+        </Text>
+      </div>
+
+      <div>
+        [Code]
+        <Text variant="codeBlock" className="max-w-sm">
+          {codeExample}
+        </Text>
+      </div>
+
+      <div>
+        [List]
+        <Text variant="list">
+          <li>First list</li>
+          <li>Second list</li>
+          <li>Third list</li>
+        </Text>
+        <Text variant="orderedList">
+          <li>First orderedList</li>
+          <li>Second orderedList</li>
+          <li>Third orderedList</li>
+        </Text>
+      </div>
+
+      <div>
+        [Table]
+        <div>
+          <Text variant="small">
+            This is a simple table. I recommend using the{" "}
+            <a
+              href="https://ui.shadcn.com/docs/components/table"
+              className="text-slate-500 underline"
+            >
+              Table Component
+            </a>{" "}
+            instead of this. Additionally, you can use the Button component to
+            easily handle link buttons.
+          </Text>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <div className="max-w-md">
+          <Text variant="table">
+            <Text variant="thead">
+              <Text variant="tr">
+                <Text variant="th">Category</Text>
+                <Text variant="th">Tech stack</Text>
+              </Text>
+            </Text>
+            <Text variant="tbody">
+              <Text variant="tr">
+                <Text variant="td">Framework</Text>
+                <Text variant="td">Next.js (React)</Text>
+              </Text>
+              <Text variant="tr">
+                <Text variant="td">Language</Text>
+                <Text variant="td">Typescript</Text>
+              </Text>
+              <Text variant="tr">
+                <Text variant="td">Styling</Text>
+                <Text variant="td">TailwindCSS</Text>
+              </Text>
+              <Text variant="tr">
+                <Text variant="td">UI Component</Text>
+                <Text variant="td">shadcn-ui</Text>
+              </Text>
+            </Text>
+          </Text>
+        </div>
+      </div>
     </div>
   );
-}
+};
+
+export default RootPage;
