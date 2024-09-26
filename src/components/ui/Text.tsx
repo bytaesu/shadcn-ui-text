@@ -94,7 +94,7 @@ const Text = ({ variant, children, className }: TextProps) => {
     case "lead":
       return <p className={classes}>{children}</p>;
     case "large":
-      return <div className={classes}>{children}</div>;
+      return <p className={classes}>{children}</p>;
     case "p":
       return <p className={classes}>{children}</p>;
     case "small":
